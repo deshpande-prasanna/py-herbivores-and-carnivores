@@ -6,7 +6,7 @@ class Animal:
         self.health = health
         self.name = name
         self.hidden = hidden
-        self.alive.append(self) if health > 0 else None
+        Animal.alive.append(self) if health > 0 else None
 
     def __str__(self) -> str:
         return (f"{{Name: {self.name}, Health: {self.health}, "
@@ -18,7 +18,7 @@ class Animal:
 
 class Herbivore(Animal):
     def hide(self) -> None:
-        self.hidden = False if self.hidden else True
+        self.hidden = not self.hidden
 
 
 class Carnivore(Animal):
